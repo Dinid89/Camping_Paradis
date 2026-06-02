@@ -1,0 +1,30 @@
+@import "tailwindcss";
+
+@theme {
+  /* ── Oranges & Ambrés ── */
+  --color-brand-soleil:  #F97316;
+  --color-brand-aurore:  #FBBF24;
+  --color-brand-miel:    #D97706;
+
+  /* ── Verts Nature ── */
+  --color-brand-foret:   #4D5E2A;
+  --color-brand-olive:   #6B7A3A;
+  --color-brand-prairie: #8A9A4A;
+  --color-brand-mousse:  #B5C065;
+
+  /* ── Neutres ── */
+  --color-brand-terre:   #292A1E;
+  --color-brand-sable:   #F5F0E8;
+  --color-brand-ecorce:  #7C6E52;
+  --color-brand-craie:   #FDFAF4;
+
+  /* ── Typographie ── */
+  --font-display: 'Playfair Display', serif;
+  --font-body:    'DM Sans', sans-serif;
+
+  /* ── Gradients ── */
+  --gradient-sunset: linear-gradient(135deg, #F97316 0%, #FBBF24 100%);
+  --gradient-foret:  linear-gradient(135deg, #292A1E 0%, #4D5E2A 100%);
+  --gradient-nature: linear-gradient(135deg, #4D5E2A 0%, #8A9A4A 50%, #FBBF24 100%);
+  --gradient-aube:   linear-gradient(135deg, #F5F0E8 0%, #FBBF24 40%, #F97316 100%);
+}
