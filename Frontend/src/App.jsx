@@ -1,16 +1,24 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
 
-export default function App() {
+import Navbar from "./components/Navbar"
+
+import Home from "./pages/Home"
+
+
+function App() {
+
   return (
+    <>
     <BrowserRouter>
-      <Header />
+    <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
       </main>
-      <Footer />
     </BrowserRouter>
+    </>
   )
 }
+
+export default App
