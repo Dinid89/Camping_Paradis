@@ -38,4 +38,28 @@ const createHebergement = (req, res) => {
     })
 }
 
-module.exports = {getAllHebergement, getHebergementById, createHebergement}
+//Modifier un hebergement
+const updateHebergement = (req, res) => {
+    const id = req.params.id
+    const { nom, type, capacite, prix_nuit, description, image } = req.body
+    const sql = "UPDATE hebergements SET nom = ?, type = ?, capacite = ?, prix_nuit = ?, description = ?, image = ? WHERE id = ?"
+    db.query(sql, [nom, type, capacite, prix_nuit, description, image, id], (err, result) => {
+        if (err) {
+            return res.status(500).json({message : "Erreur serveur"})
+        }
+        res.status(200).json({message : "Hebergement modifié avec succès"})
+    })
+}
+
+const deleteHebergement = (req, res) => {
+    const id = req.params.id
+    const sql = "DELETE FROM hebergements WHERE id = ?"
+    db.query(sql, [id], (err, result) => {
+        if (err) {
+            return res.status(500).json({message : "Erreur serveur"})
+        }
+        res.status(204).send()
+    })
+}
+
+module.exports = {getAllHebergement, getHebergementById, createHebergement, updateHebergement, deleteHebergement}
