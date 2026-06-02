@@ -12,6 +12,7 @@ const connection = mysql.createConnection({
 
 module.exports = connection
 
+//connection a MySQL
 connection.connect((err) => {
     if (err) {
         console.error('Erreur de la connexion MySQL:', err.message)
