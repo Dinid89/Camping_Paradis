@@ -11,12 +11,12 @@ app.use(cors())
 
 //routes
 app.get('/', (req, res) => {
-  res.json({ message: 'Serveur opérationnel'})
+  res.json({ message: 'Serveur Camping Paradis opérationnel'})
 })
 
 
 //PORT
 const port = process.env.PORT
 app.listen(port, () => {
-  console.log(`App listening on port ${port}`)
+  console.log(`Camping Paradis listening on port ${port}`)
 })
