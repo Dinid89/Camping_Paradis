@@ -3,6 +3,8 @@ require ('dotenv').config()
 const express = require('express')
 const cors = require('cors')
 
+const db = require('./src/config/db')
+
 //app
 const app = express()
 
