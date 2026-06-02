@@ -26,6 +26,16 @@ const getHebergementById = (req, res) => {
     })
 }
 
+//Creation d'un hebergement
+const createHebergement = (req, res) => {
+    const { nom, type, capacite, prix_nuit, description, image } = req.body
+    const sql = 'INSERT INTO hebergements (nom, type, capacite, prix_nuit, description, image) VALUES (?, ? ,? , ?, ?, ?)'
+    db.query(sql, [nom, type, capacite, prix_nuit, description, image], (err, result) => {
+        if (err) {
+            return res.status(500).json({message : "Erreur Serveur"})
+        }
+        res.status(201).json({message : "Hebergement crée avec succès" })
+    })
+}
 
-
-module.exports = {getAllHebergement, getHebergementById}
+module.exports = {getAllHebergement, getHebergementById, createHebergement}
