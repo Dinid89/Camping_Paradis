@@ -51,6 +51,7 @@ const updateHebergement = (req, res) => {
     })
 }
 
+// supprimer un hebergement
 const deleteHebergement = (req, res) => {
     const id = req.params.id
     const sql = "DELETE FROM hebergements WHERE id = ?"
