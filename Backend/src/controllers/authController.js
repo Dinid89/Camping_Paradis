@@ -14,6 +14,7 @@ const register = async (req, res) => {
     const sql = 'INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)'
     db.query(sql, [nom, prenom, email, hashedPassword], (err, result) => {
         if (err) {
+            console.error('Erreur MySQL register :', err)
             return res.status(500).json({ message: 'Erreur serveur' })
         }
         res.status(201).json({ message: 'Utilisateur créé avec succès' })
