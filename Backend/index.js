@@ -1,7 +1,10 @@
 //imports 
 require ('dotenv').config()
+
 const express = require('express')
 const cors = require('cors')
+const helmet = require('helmet')
+
 const authRoutes = require('./src/routes/authRoutes')
 const hebergementRoutes = require('./src/routes/hebergementRoutes')
 const reservationRoutes = require('./src/routes/reservationRoutes')
@@ -15,6 +18,7 @@ const app = express()
 //middleware
 app.use(cors())
 app.use(express.json()) 
+app.use(helmet())
 
 
 //routes
