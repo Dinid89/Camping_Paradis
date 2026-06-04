@@ -2,7 +2,7 @@
 const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY)
 const db = require('../config/db')
 
-//Création d'une session de ré"servation
+//Création d'une session de réservation
 const createCheckoutSession = async (req, res) => {
     const { reservation_id } = req.body
 
@@ -59,4 +59,30 @@ const createCheckoutSession = async (req, res) => {
 
 }
 
-module.exports = { createCheckoutSession }
+//Webhook pour Stripe - notifacation de paiement au serveur
+const webhookStripe = (req, res) => {
+    const sig = req.headers['stripe-signature']
+    let event
+
+    try {
+        event = stripe.webhooks.constructEvent(
+            req.body,
+            sig,
+            process.env.STRIPE_WEBHOOK_SECRET
+        )
+    } catch (err) {
+        console.error('Webhook erreur :', err.message)
+        return res.status(400).json({ message: `Webhook Error: ${err.message}` })
+    }
+
+    // Paiement réussi
+    if (event.type === 'checkout.session.completed') {
+        const session = event.data.object
+        console.log('Paiement reçu pour la session :', session.id)
+        // TODO: mettre à jour le statut de la réservation
+    }
+
+    res.status(200).json({ received: true })
+}
+
+module.exports = { createCheckoutSession, webhookStripe }
