@@ -11,6 +11,7 @@ const reservationRoutes = require('./src/routes/reservationRoutes')
 const { authMiddleware } = require('./src/middlewares/authMiddleware')
 const paiementRoutes = require('./src/routes/paiementRoutes.js')
 const userRoutes = require('./src/routes/userRoutes.js')
+const adminRoutes = require('./src/routes/adminRoutes.js')
 
 const db = require('./src/config/db')
 
@@ -43,6 +44,7 @@ app.use('/api/hebergements', hebergementRoutes)
 app.use('/api/reservations', reservationRoutes)
 app.use('/api/paiements', paiementRoutes)
 app.use('/api/users', userRoutes)
+app.use('/api/admin', adminRoutes)
 
 
 //PORT

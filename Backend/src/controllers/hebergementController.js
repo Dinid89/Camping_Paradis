@@ -59,7 +59,7 @@ const deleteHebergement = (req, res) => {
         if (err) {
             return res.status(500).json({message : "Erreur serveur"})
         }
-        res.status(204).send()
+        return res.status(204).send()
     })
 }
 
