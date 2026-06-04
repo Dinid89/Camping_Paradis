@@ -5,6 +5,7 @@ const validateRegister = [
     body('nom').notEmpty().withMessage('Le nom est obligatoire'),
     body('prenom').notEmpty().withMessage('Le prénom est obligatoire'),
     body('email').notEmpty().withMessage("L'email est obligatoire"),
+    body('phone').optional().isMobilePhone().withMessage('Numéro de téléphone invalide'),
     body('password')
         .isLength({ min: 8}).withMessage('Doit contenir 8 caractères minimum')
         .matches(/[A-Z]/).withMessage('Doit contenir 1 majuscule minimum')

@@ -4,15 +4,15 @@ const jwt = require('jsonwebtoken')
 
 const register = async (req, res) => {
     // recupere nom, prenom, mail et mdp a l'inscription
-    const { nom, prenom, email, password } = req.body
+    const { nom, prenom, email, phone, password } = req.body
     console.log(nom, prenom, email, password)
 
     // securite : hasher le mot de passe
     const hashedPassword = await bcrypt.hash(password, 10)
 
     // insertion dans la base
-    const sql = 'INSERT INTO users (nom, prenom, email, password) VALUES (?, ?, ?, ?)'
-    db.query(sql, [nom, prenom, email, hashedPassword], (err, result) => {
+    const sql = 'INSERT INTO users (nom, prenom, email, phone, password) VALUES (?, ?, ?, ?, ?)'
+    db.query(sql, [nom, prenom, email, phone, hashedPassword], (err, result) => {
         if (err) {
             console.error('Erreur MySQL register :', err)
             return res.status(500).json({ message: 'Erreur serveur' })
