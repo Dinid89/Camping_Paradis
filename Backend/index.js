@@ -9,6 +9,7 @@ const authRoutes = require('./src/routes/authRoutes')
 const hebergementRoutes = require('./src/routes/hebergementRoutes')
 const reservationRoutes = require('./src/routes/reservationRoutes')
 const { authMiddleware } = require('./src/middlewares/authMiddleware')
+const paiementRoutes = require('./src/routes/paiementRoutes.js')
 
 const db = require('./src/config/db')
 
@@ -17,7 +18,13 @@ const app = express()
 
 //middleware
 app.use(cors())
-app.use(express.json()) 
+app.use((req, res, next) => {
+    if (req.originalUrl === '/api/paiements/webhook') {
+        next()
+    } else {
+        express.json()(req, res, next)
+    }
+})
 app.use(helmet())
 
 
@@ -33,6 +40,7 @@ app.get('/api/protected', authMiddleware, (req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/hebergements', hebergementRoutes)
 app.use('/api/reservations', reservationRoutes)
+app.use('/api/paiements', paiementRoutes)
 
 
 //PORT
