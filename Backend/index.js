@@ -9,6 +9,7 @@ const authRoutes = require('./src/routes/authRoutes')
 const hebergementRoutes = require('./src/routes/hebergementRoutes')
 const reservationRoutes = require('./src/routes/reservationRoutes')
 const { authMiddleware } = require('./src/middlewares/authMiddleware')
+const paiementRoutes = require('./src/routes/paiementRoutes.js')
 
 const db = require('./src/config/db')
 
@@ -33,6 +34,7 @@ app.get('/api/protected', authMiddleware, (req, res) => {
 app.use('/api/auth', authRoutes)
 app.use('/api/hebergements', hebergementRoutes)
 app.use('/api/reservations', reservationRoutes)
+app.use('/api/paiements', paiementRoutes)
 
 
 //PORT
