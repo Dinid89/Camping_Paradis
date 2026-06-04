@@ -152,9 +152,6 @@ export default function Navbar() {
 
         {/* Bouton réservation desktop */}
         <div className="hidden md:block">
-          <button className="border-2 border-white px-4 py-2 rounded-md font-medium hover:bg-brand-foret hover:text-brand-soleil transition">
-            Réservation
-          </button>
         </div>
 
         {/* Hamburger mobile */}
@@ -245,12 +242,6 @@ export default function Navbar() {
             </a>
           </div>
 
-          <button
-            onClick={() => setMenuOpen(false)}
-            className="border-2 border-white px-4 py-2 rounded-md font-medium hover:bg-brand-foret hover:text-brand-soleil transition text-center"
-          >
-            Réservation
-          </button>
 
           <button
             onClick={() => setMenuOpen(false)}
