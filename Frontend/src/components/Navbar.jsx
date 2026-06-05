@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from "react"
-import { Link } from "react-router-dom"
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
@@ -40,39 +39,39 @@ export default function Navbar() {
     }
   ]
 
-  const CapsuleIcon = ({ item, fillColor = "#ffffff" }) => (
+  const CapsuleIcon = ({ item }) => (
     <a href="#" title={item.title} className="group flex flex-col items-center gap-1 hover:scale-110 transition-transform duration-200">
-      <div className="w-14 h-20 bg-brand-foret border-2 border-brand-olive rounded-t-2xl rounded-b-full flex items-center justify-center group-hover:bg-brand-olive transition-colors duration-200">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox={item.viewBox} fill={fillColor}>
+      <div className="w-14 h-20 bg-brand-foret border-2 border-brand-olive rounded-t-2xl rounded-b-full flex items-center justify-center group-hover:bg-brand-soleil transition-colors duration-200">
+        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox={item.viewBox} fill="#ffffff">
           {item.paths.map((d, i) => <path key={i} d={d} />)}
         </svg>
       </div>
-      <span className="text-xs font-medium text-white/80 group-hover:text-white transition">{item.title}</span>
+      <span className="text-xs font-medium text-white/70 group-hover:text-brand-soleil transition">{item.title}</span>
     </a>
   )
 
   return (
-    <nav ref={menuRef} className="bg-brand-soleil text-white shadow-md">
+    <nav ref={menuRef} className="bg-brand-terre text-white shadow-md">
       <div className="flex flex-row justify-between items-center px-6 py-3">
 
         {/* Logo */}
         <a href="/" className="flex-shrink-0">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="-225 -100 450 215" width="140" height="60" preserveAspectRatio="xMidYMid meet">
-            <rect x="-225" y="-100" width="100%" height="100%" fill="#F97316" />
+            <rect x="-225" y="-100" width="100%" height="100%" fill="#292A1E" />
             <g textAnchor="middle">
-              <text y="-40" fontFamily="'Georgia', serif" fontSize="50" fontWeight="bold" fill="#F4F4E4" stroke="#2C3E46" strokeWidth="1.5" letterSpacing="10">CAMPING</text>
-              <line x1="-220" y1="-15" x2="220" y2="-15" stroke="#2C3E46" strokeWidth="4" />
-              <text y="40" fontFamily="'Brush Script MT', cursive" fontSize="80" fontWeight="bold" fill="#2C3E46" fontStyle="italic">Paradis</text>
-              <text y="100" fontFamily="'Arial', sans-serif" fontSize="18" fontWeight="bold" fill="#2C3E46" letterSpacing="4">L'ÉVASION GRANDEUR NATURE</text>
+              <text y="-40" fontFamily="'Georgia', serif" fontSize="50" fontWeight="bold" fill="#F4F4E4" stroke="#F97316" strokeWidth="1.5" letterSpacing="10">CAMPING</text>
+              <line x1="-220" y1="-15" x2="220" y2="-15" stroke="#F97316" strokeWidth="4" />
+              <text y="40" fontFamily="'Brush Script MT', cursive" fontSize="80" fontWeight="bold" fill="#F97316" fontStyle="italic">Paradis</text>
+              <text y="100" fontFamily="'Arial', sans-serif" fontSize="18" fontWeight="bold" fill="#F5F0E8" letterSpacing="4">L'ÉVASION GRANDEUR NATURE</text>
             </g>
           </svg>
         </a>
 
         {/* Nav desktop */}
         <div className="hidden md:flex gap-8 font-medium">
-          <a href="#" className="hover:text-brand-terre transition">Accueil</a>
-          <a href="#" className="hover:text-brand-terre transition">Nos Services</a>
-          <a href="#" className="hover:text-brand-terre transition">Nos Offres</a>
+          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
+          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
+          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Offres</a>
         </div>
 
         {/* Capsules hébergements desktop */}
@@ -82,8 +81,8 @@ export default function Navbar() {
 
         {/* Auth desktop */}
         <div className="hidden md:flex gap-3 items-center">
-          <a href="#" className="text-white font-medium hover:text-brand-terre transition text-sm">Connexion</a>
-          <a href="#" className="bg-brand-foret text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-olive transition">Inscription</a>
+          <a href="#" className="text-white/80 hover:text-brand-soleil transition text-sm font-medium">Connexion</a>
+          <a href="#" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-aurore transition">Inscription</a>
         </div>
 
         {/* Hamburger mobile */}
@@ -96,24 +95,24 @@ export default function Navbar() {
 
       {/* Menu mobile */}
       {menuOpen && (
-        <div className="md:hidden bg-brand-soleil border-t border-white/20 px-6 py-5 flex flex-col gap-5">
+        <div className="md:hidden bg-brand-terre border-t border-white/10 px-6 py-5 flex flex-col gap-5">
 
           {/* Liens nav */}
           <div className="flex flex-col gap-3 font-medium">
-            <a href="#" className="hover:text-brand-terre transition">Accueil</a>
-            <a href="#" className="hover:text-brand-terre transition">Nos Services</a>
-            <a href="#" className="hover:text-brand-terre transition">Nos Offres</a>
+            <a href="#" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
+            <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
+            <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Offres</a>
           </div>
 
           {/* Capsules mobile */}
-          <div className="flex gap-8 items-center justify-center border-t border-white/20 pt-4">
-            {hebergements.map(item => <CapsuleIcon key={item.title} item={item} fillColor="#ffffff" />)}
+          <div className="flex gap-8 items-center justify-center border-t border-white/10 pt-4">
+            {hebergements.map(item => <CapsuleIcon key={item.title} item={item} />)}
           </div>
 
           {/* Auth mobile */}
-          <div className="flex flex-col gap-3 border-t border-white/20 pt-4">
-            <a href="#" className="text-white font-medium hover:text-brand-terre transition">Connexion</a>
-            <a href="#" className="bg-brand-foret text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-brand-olive transition">Inscription</a>
+          <div className="flex flex-col gap-3 border-t border-white/10 pt-4">
+            <a href="#" className="text-white/80 hover:text-brand-soleil transition font-medium">Connexion</a>
+            <a href="#" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-brand-aurore transition">Inscription</a>
           </div>
 
         </div>
