@@ -5,10 +5,10 @@ export default function Home() {
   return (
     <>
       <div className="flex justify-between mt-5 mb-3 mx-5">
-        <h2 className="">Nos services</h2>
+        <h2 className="text-xl font-bold">Nos services</h2>
         <a
           href="#"
-          className="mt-auto self-end inline-flex items-center text-black"
+          className="mt-auto self-end inline-flex items-center text-black font-semibold"
         >
           Tous nos services
           <svg
@@ -29,7 +29,7 @@ export default function Home() {
         </a>
       </div>
 
-      {/* DESKTOP*/}
+      {/* SERVICES - DESKTOP*/}
       <div className="hidden lg:flex flex-col">
         <div className="flex gap-5 mx-5">
           <CardServices image="https://images.unsplash.com/photo-1665574522536-06ad804e6250?q=80&w=2189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" nom="Piscine" description="Plongez dans un espace de détente pensé pour tous les âges. Entre baignades rafraîchissantes et moments de repos au soleil, la piscine devient le cœur des vacances." />
@@ -38,6 +38,15 @@ export default function Home() {
         <br />
         <div className="mx-5">
           <CardServices image="https://images.pexels.com/photos/30133760/pexels-photo-30133760.jpeg" nom="Nature" description="Partez à la découverte des chemins autour du camping, entre forêts, paysages apaisants et rencontres sauvages. Une parenthèse nature à portée de pas." />
+        </div>
+      </div>
+
+      {/* SERVICES - MOBILE*/}
+      <div className="flex flex-col lg:hidden">
+        <div className="flex flex-col gap-5 mx-5">
+          <CardServices image="https://images.unsplash.com/photo-1665574522536-06ad804e6250?q=80&w=2189&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" nom="Piscine" description="" />
+          <CardServices image="https://images.pexels.com/photos/34172634/pexels-photo-34172634.jpeg" nom="Restauration" description="" />
+          <CardServices image="https://images.pexels.com/photos/30133760/pexels-photo-30133760.jpeg" nom="Nature" description="" />
         </div>
       </div>
 
