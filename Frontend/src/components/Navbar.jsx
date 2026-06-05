@@ -71,7 +71,7 @@ export default function Navbar() {
         <div className="hidden md:flex gap-8 font-medium">
           <a href="#" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
           <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
-          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Offres</a>
+          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Réserver</a>
         </div>
 
         {/* Capsules hébergements desktop */}
@@ -101,7 +101,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-3 font-medium">
             <a href="#" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
             <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
-            <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Offres</a>
+            <a href="#" className="text-white/80 hover:text-brand-soleil transition">Réserver</a>
           </div>
 
           {/* Capsules mobile */}
