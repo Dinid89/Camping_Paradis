@@ -6,7 +6,8 @@ export default function CardHebergement({
   image,
   description,
   onReserver
-}) {
+}) 
+{
   return (
     <div className="bg-white border border-gray-100 rounded-xl overflow-hidden">
       {/* Image / placeholder */}
@@ -20,7 +21,7 @@ export default function CardHebergement({
           {type}
         </span>
         <span className="absolute top-3 right-3 bg-black/30 text-white text-xs font-medium px-3 py-1 rounded-full">
-          {capacite} pers.
+          jusqu'à {capacite} pers.
         </span>
       </div>
 
@@ -30,8 +31,9 @@ export default function CardHebergement({
         <p className="text-sm text-gray-500 mb-4 line-clamp-2">{description}</p>
         <div className="flex items-center justify-between">
           <div>
+            <span className="text-sm text-gray-400"> à partir de  </span>
             <span className="text-2xl font-medium text-brand-soleil">
-              {prix_nuit} €
+                {prix_nuit} €
             </span>
             <span className="text-sm text-gray-400"> / nuit</span>
           </div>
@@ -39,7 +41,7 @@ export default function CardHebergement({
             onClick={onReserver}
             className="bg-brand-foret text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-olive transition"
           >
-            Réserver
+            Voir
           </button>
         </div>
       </div>

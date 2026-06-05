@@ -2,7 +2,7 @@ export default function CardServices({ nom, image, description }) {
   return (
     <>
       {/* SERVICES - DESKTOP*/}
-      <div className="w-full px-5 md:px-0">
+      <div className="w-full px-5 md:px-0 mb-10">
         <div
           className="h-80 p-4 bg-cover bg-center flex flex-col"
           style={{ backgroundImage: `url(${image})` }}
