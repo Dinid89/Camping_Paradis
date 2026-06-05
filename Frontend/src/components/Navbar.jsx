@@ -16,6 +16,12 @@ export default function Navbar() {
 
   const hebergements = [
     {
+     title: "Chalet",
+     viewBox: "0 0 512 512",
+     paths: ["M395.141,193.75V90.781h-47.703v55.266l-53.375-53.391L256,54.625l-38.063,38.031L0,310.609l38.063,38.063 l41.813-41.828v150.531h352.25V306.844l41.813,41.828L512,310.609L395.141,193.75z M245.578,396.719h-54.484v-54.5h54.484V396.719z M245.578,321.063h-54.484v-54.5h54.484V321.063z M320.906,396.719h-54.484v-54.5h54.484V396.719z M320.906,321.063h-54.484v-54.5 h54.484V321.063z"]
+
+    },
+    {
       title: "Bungalow",
       viewBox: "0 0 325.122 325.122",
       paths: ["M174.145,22.143c-3.454-3.427-8.121-5.347-12.983-5.347c-0.027,0-0.06,0-0.092,0 c-4.895,0.027-9.584,1.996-13.021,5.483L5.311,166.855c-7.147,7.239-7.071,18.906,0.169,26.048 c7.239,7.152,18.901,7.076,26.053-0.163l7.941-8.044v102.57c0,11.629,9.426,21.055,21.055,21.055h90.299v-90.468h22.588v90.473 h91.186c11.623,0,21.049-9.426,21.049-21.055V184.848l8.072,8.023c3.59,3.568,8.284,5.347,12.983,5.347 c4.732,0,9.469-1.811,13.065-5.434c7.169-7.218,7.131-18.884-0.087-26.053L174.145,22.143z M248.802,271.486h-38.552v-69.424 c0-11.629-9.426-21.049-21.055-21.049h-54.162c-11.629,0-21.055,9.42-21.055,21.049v69.424H76.313v-99.018l85.578-85.633 l86.911,83.207C248.802,170.042,248.802,271.486,248.802,271.486z"]
@@ -69,8 +75,8 @@ export default function Navbar() {
 
         {/* Nav desktop */}
         <div className="hidden md:flex gap-8 font-medium">
-          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
-          <a href="#" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
+          <a href="/" className="text-white/80 hover:text-brand-soleil transition">Accueil</a>
+          <a href="/NosServices" className="text-white/80 hover:text-brand-soleil transition">Nos Services</a>
           <a href="#" className="text-white/80 hover:text-brand-soleil transition">Réserver</a>
         </div>
 
