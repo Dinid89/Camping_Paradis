@@ -1,13 +1,8 @@
-
-
 import CardHebergement from "../components/hebergements/CardHebergement";
 import CardServices from "../components/Home/CardServices";
 import HomeBonus from "../components/Home/HomeBonus";
 
-
 export default function Home() {
-
-
   return (
     <>
       <div className="HomeHebergements">

@@ -1,3 +1,5 @@
+//Modal pour confirmation, modification etc..
+
 export default function Modal({ isOpen, title, message, onConfirm, onClose }) {
   if (!isOpen) return null;
 
