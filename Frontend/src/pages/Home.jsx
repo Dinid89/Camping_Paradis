@@ -2,12 +2,14 @@ import CardHebergement from "../components/hebergements/CardHebergement";
 import CardServices from "../components/Home/CardServices";
 import HomeBonus from "../components/Home/HomeBonus";
 
-import CookieBanner from "../components/UI/CookieBanner";
+
 
 export default function Home() {
+
   return (
     <>
-    <CookieBanner />
+
+
       <div className="HomeHebergements">
         <div className="flex justify-between mt-5 mb-3 mx-5">
           <h2 className="text-xl font-bold">Nos Hébergements</h2>
