@@ -3,12 +3,10 @@ import CardServices from "../components/Home/CardServices";
 import HomeBonus from "../components/Home/HomeBonus";
 
 
-
 export default function Home() {
 
   return (
     <>
-
 
       <div className="HomeHebergements">
         <div className="flex justify-between mt-5 mb-3 mx-5">
