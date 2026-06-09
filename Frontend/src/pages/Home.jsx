@@ -43,7 +43,7 @@ export default function Home() {
               capacite={6}
               prix_nuit={10}
               description="Un magnifique chalet au cœur de la nature"
-              onReserver={() => alert("Réservation !")}
+              url="/chalet" 
             />
             <CardHebergement
               nom="Bungalow"
@@ -51,7 +51,7 @@ export default function Home() {
               capacite={6}
               prix_nuit={99}
               description="Un magnifique chalet au cœur de la nature"
-              onReserver={() => alert("Réservation !")}
+              url="/chalet" 
             />
             <CardHebergement
               nom="Chalet"
@@ -59,7 +59,7 @@ export default function Home() {
               capacite={8}
               prix_nuit={129}
               description="Un magnifique chalet au cœur de la nature"
-              onReserver={() => alert("Réservation !")}
+              url="/chalet" 
             />
           </div>
         </div>
@@ -75,6 +75,7 @@ export default function Home() {
               capacite={6}
               prix_nuit={10}
               description="Un magnifique chalet au cœur de la nature"
+              url="/chalet" 
             />
           </div>
           <div className="min-w-[85%] snap-center">
@@ -84,6 +85,7 @@ export default function Home() {
               capacite={6}
               prix_nuit={99}
               description="Un magnifique chalet au cœur de la nature"
+              url="/chalet" 
             />
           </div>
           <div className="min-w-[85%] snap-center">
@@ -93,6 +95,7 @@ export default function Home() {
               capacite={8}
               prix_nuit={129}
               description="Un magnifique chalet au cœur de la nature"
+              url="/chalet" 
             />
           </div>
         </div>

@@ -1,3 +1,5 @@
+import { useNavigate } from "react-router-dom"
+
 export default function CardHebergement({
   nom,
   type,
@@ -5,9 +7,12 @@ export default function CardHebergement({
   prix_nuit,
   image,
   description,
-  onReserver
-}) 
+  url
+})
+
 {
+  const navigate = useNavigate();
+
   return (
     <div className="bg-white border border-gray-100 rounded-xl overflow-hidden">
       {/* Image / placeholder */}
@@ -38,7 +43,7 @@ export default function CardHebergement({
             <span className="text-sm text-gray-400"> / nuit</span>
           </div>
           <button
-            onClick={onReserver}
+            onClick={() => navigate(url)}
             className="bg-brand-foret text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-olive transition"
           >
             Voir

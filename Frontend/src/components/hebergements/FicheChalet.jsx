@@ -3,53 +3,78 @@ import {
   Bed,
   Bath,
   Wifi,
+  Tv,
   Car,
-  Dog,
   Coffee,
   Snowflake,
+  Waves,
+  Flame,
+  Sofa,
+  Zap
 } from "lucide-react";
 
-export default function HebergementCard(nom, type, capacite, description, prix_nuit, image) {
+import chalets from '../../data/chalets.json'
+
+export default function HebergementCard({
+  type,
+  capacite_min,
+  capacite_max,
+  surface_min,
+  surface_max,
+  chambre_min,
+  chambre_max,
+  description,
+  prix_nuit,
+  image_1,
+  image_2,
+  image_3,
+  image_4,
+  image_5
+}) {
   const amenities = [
-    { icon: <Wifi size={18} />, label: "Wi-Fi gratuit" },
+    { icon: <Wifi size={18} />, label: "Wi-Fi" },
+    { icon: <Tv size={18} />, label: "Télévision 4K OLED" },
     { icon: <Car size={18} />, label: "Parking privé" },
-    { icon: <Coffee size={18} />, label: "Cuisine équipée" },
+    { icon: <Zap size={18} />, label: "Borne de recharge pour voiture électrique" },
+    { icon: <Coffee size={18} />, label: "Cuisine haut de gamme équipée" },
     { icon: <Snowflake size={18} />, label: "Climatisation" },
-    { icon: <Dog size={18} />, label: "Animaux acceptés" },
+    { icon: <Waves size={18} />, label: "Jacuzzi & Spa privatif" },
+    { icon: <Flame size={18} />, label: "Cuisine d'été / Barbecue" },
+    { icon: <Sofa size={18} />, label: "Mobilier de jardin Prenium" },
   ];
 
   return (
-    <div className="max-w-6xl mx-auto bg-white rounded-3xl overflow-hidden shadow-xl">
+    <div className="w-full mx-auto bg-white rounded-3xl overflow-hidden shadow-xl">
       {/* Galerie */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
         <img
-          src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-          alt="Bungalow"
+          src={chalets.image_1}
+          alt=" image logement"
           className="h-[400px] w-full object-cover rounded-2xl"
         />
 
         <div className="grid grid-cols-2 gap-2">
           <img
-            src={image}
-            alt="Logement"
+            src={chalets.image_2}
+            alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src="https://images.unsplash.com/photo-1484154218962-a197022b5858"
-            alt=""
+            src={chalets.image_3}
+            alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85"
-            alt=""
+            src={chalets.image_4}
+            alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267"
-            alt=""
+            src={chalets.image_5}
+            alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
         </div>
@@ -63,19 +88,15 @@ export default function HebergementCard(nom, type, capacite, description, prix_n
               {type}
             </span>
 
-            <h1 className="text-4xl font-bold text-brand-foret mt-3">
-              {nom}
-            </h1>
-
-            <p className="text-gray-500 mt-2">
-              Un logement spacieux au cœur de la nature
+            <p className="text-gray-500 text-xl mt-2">
+              Un logement spacieux et luxueux au cœur de la nature
             </p>
           </div>
 
           <div className="text-center md:text-right">
             <p className="text-gray-500 text-sm">À partir de</p>
 
-            <p className="text-4xl font-bold text-brand-soleil">{prix_nuit}</p>
+            <p className="text-4xl font-bold text-brand-soleil">{prix_nuit} €</p>
 
             <p className="text-sm text-gray-500">/ nuit</p>
           </div>
@@ -85,22 +106,22 @@ export default function HebergementCard(nom, type, capacite, description, prix_n
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
           <div className="bg-gray-50 p-4 rounded-xl text-center">
             <Users className="mx-auto mb-2" />
-            <p className="font-semibold">{capacite} personnes</p>
+            <p className="font-semibold">de {capacite_min} à {capacite_max} personnes</p>
           </div>
 
           <div className="bg-gray-50 p-4 rounded-xl text-center">
             <Bed className="mx-auto mb-2" />
-            <p className="font-semibold">à partir de 2 chambres</p>
+            <p className="font-semibold">de {chambre_min} à {chambre_max} chambres</p>
           </div>
 
           <div className="bg-gray-50 p-4 rounded-xl text-center">
             <Bath className="mx-auto mb-2" />
-            <p className="font-semibold">1 salle d'eau</p>
+            <p className="font-semibold">2 salles d'eau</p>
           </div>
 
           <div className="bg-gray-50 p-4 rounded-xl text-center">
             <span className="text-2xl">📐</span>
-            <p className="font-semibold">à partir de 35 m²</p>
+            <p className="font-semibold">de {surface_min} à {surface_max} m²</p>
           </div>
         </div>
 
@@ -110,9 +131,7 @@ export default function HebergementCard(nom, type, capacite, description, prix_n
             Description
           </h2>
 
-          <p className="text-gray-600 leading-8">
-            {description}
-          </p>
+          <p className="text-gray-600 leading-8">{description}</p>
         </section>
 
         {/* Equipements */}
@@ -141,7 +160,7 @@ export default function HebergementCard(nom, type, capacite, description, prix_n
           </h2>
 
           <div className="grid md:grid-cols-2 gap-4">
-            <div className="bg-green-50 p-4 rounded-xl">Vue sur la pinède</div>
+            <div className="bg-green-50 p-4 rounded-xl">Extérieur arboré</div>
 
             <div className="bg-green-50 p-4 rounded-xl">
               À 500 m de la plage
@@ -163,20 +182,20 @@ export default function HebergementCard(nom, type, capacite, description, prix_n
             Informations pratiques
           </h2>
 
-          <div className="grid md:grid-cols-2 gap-4 text-gray-600">
-            <p>🕒 Arrivée : à partir de 16h00</p>
-            <p>🕙 Départ : avant 10h00</p>
-            <p>🐾 Animaux autorisés</p>
-            <p>🚗 Parking inclus</p>
-            <p>📶 Wi-Fi disponible</p>
-            <p>🧺 Location de linge possible</p>
-          </div>
+        
+            <ul className="grid md:grid-cols-2 gap-4 text-gray-600">
+              <li>Départ : à partir de 10h00</li>
+              <li>Arrivée : à partir de 16h00</li>
+              <li>Linge de lit inclus</li>
+              <li>Petit déjeuner inclus</li>
+              <li>Animaux acceptés</li>
+            </ul>
         </section>
 
         {/* CTA */}
         <div className="flex justify-center mt-10">
           <button className="bg-brand-soleil text-white px-8 py-4 rounded-xl font-semibold text-lg hover:opacity-90 transition">
-            Voir les autres {type}
+            Voir tous nos {type} disponibles
           </button>
         </div>
       </div>
