@@ -1,7 +1,40 @@
+import { useState } from "react";
+
 export default function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        setError(data.message);
+        return;
+      }
+
+      localStorage.setItem("token", data.token);
+      alert("Connexion réussie !");
+    } catch (_err) {
+      setError("Erreur de connexion au serveur");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex">
-      {/* Image */}
       <div className="hidden lg:block w-1/2">
         <img
           src="https://images.unsplash.com/photo-1596970087316-f82c4f3f3cbb?q=80&w=735&auto=format&fit=crop"
@@ -10,20 +43,23 @@ export default function LoginForm() {
         />
       </div>
 
-      {/* Formulaire */}
       <div className="w-full lg:w-1/2 flex items-center justify-center bg-brand-foret px-6">
         <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10">
           <div className="mb-8 text-center">
-            <h1 className="text-3xl font-bold text-brand-foret">
-              Bienvenue
-            </h1>
-
+            <h1 className="text-3xl font-bold text-brand-foret">Bienvenue</h1>
             <p className="text-gray-500 mt-2">
               Connectez-vous à votre espace personnel
             </p>
           </div>
 
-          <form className="space-y-5">
+          {/* Affichage erreur */}
+          {error && (
+            <div className="bg-red-50 text-red-500 text-sm px-4 py-3 rounded-xl mb-4">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div>
               <label
                 htmlFor="email"
@@ -31,10 +67,11 @@ export default function LoginForm() {
               >
                 Adresse e-mail
               </label>
-
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="vous@email.com"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
               />
@@ -47,10 +84,11 @@ export default function LoginForm() {
               >
                 Mot de passe
               </label>
-
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
               />
@@ -67,9 +105,10 @@ export default function LoginForm() {
 
             <button
               type="submit"
-              className="w-full bg-brand-soleil text-white py-3 rounded-xl font-semibold hover:opacity-90 transition duration-200 cursor-pointer"
+              disabled={loading}
+              className="w-full bg-brand-soleil text-white py-3 rounded-xl font-semibold hover:opacity-90 transition duration-200 cursor-pointer disabled:opacity-50"
             >
-              Se connecter
+              {loading ? "Connexion..." : "Se connecter"}
             </button>
           </form>
 
