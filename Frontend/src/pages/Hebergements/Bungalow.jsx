@@ -1,4 +1,4 @@
-import FicheBungalow from "../components/hebergements/FicheBungalow"
+import FicheBungalow from "../../components/hebergements/FicheBungalow"
 
 export default function Bungalow() {
     return (

@@ -1,4 +1,4 @@
-import FicheHebergement from "../components/hebergements/FicheChalet"
+import FicheHebergement from "../../components/hebergements/FicheChalet"
 
 export default function Chalet() {
     return (

@@ -9,15 +9,17 @@ import Footer from "./components/Footer"
 import CookieBanner from "./components/UI/CookieBanner"
 
 //Auth
-import Login from "./pages/Login"
-import Register from "./pages/Register"
+import Login from "./pages/Auth/Login"
+import Register from "./pages/Auth/Register"
 
 
-//pages 
+//pages principales
 import Home from "./pages/Home"
+import Services from "./pages/Services"
 
-import Chalet from "./pages/Chalet"
-import Bungalow from "./pages/Bungalow"
+//pages annexes
+import Chalet from "./pages/Hebergements/Chalet"
+import Bungalow from "./pages/Hebergements/Bungalow"
 
 
 
@@ -39,6 +41,7 @@ function App() {
             <main>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/services" element={<Services />} />
                 <Route path="/chalet" element={<Chalet />} />
                 <Route path="/bungalow" element={<Bungalow />} />
               </Routes>
