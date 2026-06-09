@@ -87,8 +87,8 @@ export default function Navbar() {
 
         {/* Auth desktop */}
         <div className="hidden md:flex gap-3 items-center">
-          <a href="#" className="text-white/80 hover:text-brand-soleil transition text-sm font-medium">Connexion</a>
-          <a href="#" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-aurore transition">Inscription</a>
+          <a href="/login" className="text-white/80 hover:text-brand-soleil transition text-sm font-medium">Connexion</a>
+          <a href="/register" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-brand-aurore transition">Inscription</a>
         </div>
 
         {/* Hamburger mobile */}
@@ -117,8 +117,8 @@ export default function Navbar() {
 
           {/* Auth mobile */}
           <div className="flex flex-col gap-3 border-t border-white/10 pt-4">
-            <a href="#" className="text-white/80 hover:text-brand-soleil transition font-medium">Connexion</a>
-            <a href="#" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-brand-aurore transition">Inscription</a>
+            <a href="/login" className="text-white/80 hover:text-brand-soleil transition font-medium">Connexion</a>
+            <a href="/register" className="bg-brand-soleil text-white px-4 py-2 rounded-lg text-sm font-medium text-center hover:bg-brand-aurore transition">Inscription</a>
           </div>
 
         </div>

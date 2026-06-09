@@ -1,8 +1,65 @@
+import { useState } from "react";
+
 export default function RegisterForm() {
+  const [nom, setNom] = useState("");
+  const [prenom, setPrenom] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+
+  const [terms, setTerms] = useState(false);
+
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+    setError(null);
+
+    if (password !== confirmPassword) {
+      setError("Les mots de passe ne correspondent pas");
+      setLoading(false);
+      return;
+    }
+
+    if (!terms) {
+      setError("Vous devez accepter les conditions d'utilisation");
+      setLoading(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("http://localhost:3000/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nom, prenom, email, phone, password }),
+      });
+      const data = await response.json();
+
+      if (!response.ok) {
+        if (data.errors) {
+          setError(data.errors[0].msg);
+        } else {
+          setError(data.message);
+        }
+        return;
+      }
+
+      localStorage.setItem("token", data.token);
+      alert("Enregistrement réussi");
+    } catch (_err) {
+      setError("Erreur de connexion au serveur");
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex">
       {/* Image */}
-      <div className="hidden lg:block w-1/2 h-full">
+      <div className="hidden lg:block w-1/2">
         <img
           src="https://images.unsplash.com/photo-1596970087316-f82c4f3f3cbb?q=80&w=735&auto=format&fit=crop"
           alt="Sud de la France"
@@ -23,7 +80,14 @@ export default function RegisterForm() {
             </p>
           </div>
 
-          <form className="space-y-5">
+          {/* Affichage erreur */}
+          {error && (
+            <div className="bg-red-50 text-red-500 text-sm px-4 py-3 rounded-xl mb-4">
+              {error}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit} className="space-y-5">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div>
                 <label
@@ -36,6 +100,8 @@ export default function RegisterForm() {
                 <input
                   id="firstname"
                   type="text"
+                  value={prenom}
+                  onChange={(e) => setPrenom(e.target.value)}
                   placeholder="David"
                   className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
                 />
@@ -52,6 +118,8 @@ export default function RegisterForm() {
                 <input
                   id="lastname"
                   type="text"
+                  value={nom}
+                  onChange={(e) => setNom(e.target.value)}
                   placeholder="Dupont"
                   className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
                 />
@@ -69,7 +137,27 @@ export default function RegisterForm() {
               <input
                 id="email"
                 type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 placeholder="vous@email.com"
+                className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
+              />
+            </div>
+
+            <div>
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-2"
+              >
+                Téléphone
+              </label>
+
+              <input
+                id="phone"
+                type="tel"
+                value={phone}
+                onChange={(e) => setPhone(e.target.value)}
+                placeholder="ex: 0607080910"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
               />
             </div>
@@ -80,11 +168,14 @@ export default function RegisterForm() {
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
                 Mot de passe
+                <span><small> (doit contenir une majuscule et un chiffre au minimum)</small></span>
               </label>
 
               <input
                 id="password"
                 type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 placeholder="Minimum 8 caractères"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
               />
@@ -101,6 +192,8 @@ export default function RegisterForm() {
               <input
                 id="confirmPassword"
                 type="password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Retapez votre mot de passe"
                 className="w-full rounded-xl border border-gray-300 px-4 py-3 outline-none focus:border-brand-soleil focus:ring-2 focus:ring-brand-soleil/20 transition"
               />
@@ -110,23 +203,23 @@ export default function RegisterForm() {
               <input
                 id="terms"
                 type="checkbox"
+                checked={terms}
+                onChange={(e) => setTerms(e.target.value)}
                 className="mt-1 h-4 w-4 accent-brand-soleil"
               />
 
-              <label
-                htmlFor="terms"
-                className="text-sm text-gray-600"
-              >
-                J'accepte les conditions d'utilisation et la politique
-                de confidentialité.
+              <label htmlFor="terms" className="text-sm text-gray-600">
+                J'accepte les conditions d'utilisation et la politique de
+                confidentialité.
               </label>
             </div>
 
             <button
               type="submit"
+              disabled={loading}
               className="w-full bg-brand-soleil text-white py-3 rounded-xl font-semibold hover:opacity-90 transition cursor-pointer"
             >
-              Créer mon compte
+              {loading ? "Création en cours..." : "Créer mon compte"}
             </button>
           </form>
 
