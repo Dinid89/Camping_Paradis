@@ -45,6 +45,10 @@ export default function LoginForm() {
 
       <div className="w-full lg:w-1/2 flex items-center justify-center bg-brand-foret px-6">
         <div className="w-full max-w-md bg-white rounded-3xl shadow-2xl p-10">
+          
+          <a href="/" className="text-start text-gray-500"><small>⟵ Retour à la page d'accueil</small></a>
+          <br />
+          <br />
           <div className="mb-8 text-center">
             <h1 className="text-3xl font-bold text-brand-foret">Bienvenue</h1>
             <p className="text-gray-500 mt-2">

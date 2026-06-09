@@ -84,7 +84,7 @@ export default function Footer() {
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 flex-shrink-0">
                 <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/>
               </svg>
-              123 Route de la Forêt<br/>75000 Paris, France
+              123 Route de la Forêt<br/>La-Fôret-sur-Mer, France
             </li>
             <li className="flex items-center gap-2">
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
@@ -120,7 +120,12 @@ export default function Footer() {
           
           {/* Copyright */}
           <p className="text-sm text-white/50">
-            © {new Date().getFullYear()} Camping Paradis. Tous droits réservés.
+            © {new Date().getFullYear()} Camping Paradis. Tous droits réservés. 
+            
+          </p>
+
+          <p>
+            <strong>Attention : Site fictif</strong>
           </p>
 
           {/* Logos paiement */}
