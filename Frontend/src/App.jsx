@@ -17,6 +17,7 @@ import Register from "./pages/Register"
 import Home from "./pages/Home"
 
 import Chalet from "./pages/Chalet"
+import Bungalow from "./pages/Bungalow"
 
 
 
@@ -39,6 +40,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/chalet" element={<Chalet />} />
+                <Route path="/bungalow" element={<Bungalow />} />
               </Routes>
             </main>
             <Footer />

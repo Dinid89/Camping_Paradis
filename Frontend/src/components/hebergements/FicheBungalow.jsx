@@ -7,15 +7,11 @@ import {
   Car,
   Coffee,
   Snowflake,
-  Waves,
-  Flame,
-  Sofa,
-  Zap
 } from "lucide-react";
 
-import chalets from '../../data/chalets.json'
+import bungalows from '../../data/bungalows.json'
 
-export default function FicheChalet({
+export default function FicheBungalow({
   type,
   capacite_min,
   capacite_max,
@@ -28,14 +24,10 @@ export default function FicheChalet({
 }) {
   const amenities = [
     { icon: <Wifi size={18} />, label: "Wi-Fi" },
-    { icon: <Tv size={18} />, label: "Télévision 4K OLED" },
+    { icon: <Tv size={18} />, label: "Télévision" },
     { icon: <Car size={18} />, label: "Parking privé" },
-    { icon: <Zap size={18} />, label: "Borne de recharge pour voiture électrique" },
-    { icon: <Coffee size={18} />, label: "Cuisine haut de gamme équipée" },
+    { icon: <Coffee size={18} />, label: "Cuisine équipée" },
     { icon: <Snowflake size={18} />, label: "Climatisation" },
-    { icon: <Waves size={18} />, label: "Jacuzzi & Spa privatif" },
-    { icon: <Flame size={18} />, label: "Cuisine d'été / Barbecue" },
-    { icon: <Sofa size={18} />, label: "Mobilier de jardin Prenium" },
   ];
 
   return (
@@ -43,32 +35,32 @@ export default function FicheChalet({
       {/* Galerie */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-2 p-2">
         <img
-          src={chalets.image_1}
+          src={bungalows.image_1}
           alt=" image logement"
           className="h-[400px] w-full object-cover rounded-2xl"
         />
 
         <div className="grid grid-cols-2 gap-2">
           <img
-            src={chalets.image_2}
+            src={bungalows.image_2}
             alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src={chalets.image_3}
+            src={bungalows.image_3}
             alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src={chalets.image_4}
+            src={bungalows.image_4}
             alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
 
           <img
-            src={chalets.image_5}
+            src={bungalows.image_5}
             alt="image logement"
             className="h-[195px] w-full object-cover rounded-2xl"
           />
@@ -111,7 +103,7 @@ export default function FicheChalet({
 
           <div className="bg-gray-50 p-4 rounded-xl text-center">
             <Bath className="mx-auto mb-2" />
-            <p className="font-semibold">2 salles d'eau</p>
+            <p className="font-semibold">1 salle d'eau</p>
           </div>
 
           <div className="bg-gray-50 p-4 rounded-xl text-center">
@@ -166,7 +158,7 @@ export default function FicheChalet({
             </div>
 
             <div className="bg-green-50 p-4 rounded-xl">
-              Grande terrasse couverte
+              Accès aux activités du camping
             </div>
           </div>
         </section>
@@ -181,8 +173,8 @@ export default function FicheChalet({
             <ul className="grid md:grid-cols-2 gap-4 text-gray-600">
               <li>Départ : à partir de 10h00</li>
               <li>Arrivée : à partir de 16h00</li>
-              <li>Linge de lit inclus</li>
-              <li>Petit déjeuner inclus</li>
+              <li>Linge de lit en option</li>
+              <li>Petit déjeuner sur réservation</li>
               <li>Animaux acceptés</li>
             </ul>
         </section>

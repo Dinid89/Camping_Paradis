@@ -51,13 +51,13 @@ export default function Home() {
               capacite={6}
               prix_nuit={99}
               description="Un magnifique chalet au cœur de la nature"
-              url="/chalet" 
+              url="/bungalow" 
             />
             <CardHebergement
               nom="Chalet"
               type="Chalet"
               capacite={8}
-              prix_nuit={129}
+              prix_nuit={350}
               description="Un magnifique chalet au cœur de la nature"
               url="/chalet" 
             />
