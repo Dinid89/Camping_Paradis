@@ -32,6 +32,7 @@ export default function LoginForm() {
       
       login(data.token);
       alert("Connexion réussie !");
+      window.location.href = "/"
     } catch (_err) {
       setError("Erreur de connexion au serveur");
     } finally {

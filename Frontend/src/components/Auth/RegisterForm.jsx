@@ -2,8 +2,6 @@ import { useState } from "react";
 import { useAuth } from "../../context/useAuth";
 
 export default function RegisterForm() {
-  
-  const { login } = useAuth
 
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
@@ -43,6 +41,7 @@ export default function RegisterForm() {
       const data = await response.json();
 
       if (!response.ok) {
+        console.log("Erreurs : ", data);
         if (data.errors) {
           setError(data.errors[0].msg);
         } else {
@@ -51,8 +50,8 @@ export default function RegisterForm() {
         return;
       }
 
-      login(data.token);
-      alert("Enregistrement réussi");
+      alert("Compte créé avec succès ! Connectez-vous.");
+      window.location.href = "/login";
     } catch (_err) {
       setError("Erreur de connexion au serveur");
     } finally {
@@ -74,8 +73,9 @@ export default function RegisterForm() {
       {/* Formulaire */}
       <div className="w-full lg:w-1/2 flex items-center justify-center bg-brand-foret px-6 py-8">
         <div className="w-full max-w-lg bg-white rounded-3xl shadow-2xl p-10">
-
-        <a href="/" className="text-start text-gray-500"><small>⟵ Retour à la page d'accueil</small></a>
+          <a href="/" className="text-start text-gray-500">
+            <small>⟵ Retour à la page d'accueil</small>
+          </a>
           <br />
           <br />
 
@@ -177,7 +177,13 @@ export default function RegisterForm() {
                 className="block text-sm font-medium text-gray-700 mb-2"
               >
                 Mot de passe
-                <span><small> (doit contenir une majuscule et un chiffre au minimum)</small></span>
+                <span>
+                  <small>
+                    {" "}
+                    (doit contenir : une majuscule /un chiffre au minimum / Un
+                    caractère spécial)
+                  </small>
+                </span>
               </label>
 
               <input

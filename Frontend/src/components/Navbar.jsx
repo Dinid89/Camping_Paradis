@@ -134,7 +134,7 @@ export default function Navbar() {
           <div className="flex flex-col gap-3 border-t border-white/10 pt-4">
             {isAuthenticated ? (
               <>
-                <span className="text-white/80 text-sm">Bonjour {user?.prenom || user?.id}</span>
+                <span className="text-white/80 text-sm">Bonjour {user?.prenom || user?.prenom}</span>
                 <a href="/profil" className="text-white/80 hover:text-brand-soleil transition font-medium">Mon profil</a>
                 <button
                   onClick={() => { logout(); setMenuOpen(false) }}
