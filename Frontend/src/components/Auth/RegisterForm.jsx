@@ -1,6 +1,10 @@
 import { useState } from "react";
+import { useAuth } from "../../context/useAuth";
 
 export default function RegisterForm() {
+  
+  const { login } = useAuth
+
   const [nom, setNom] = useState("");
   const [prenom, setPrenom] = useState("");
   const [email, setEmail] = useState("");
@@ -47,7 +51,7 @@ export default function RegisterForm() {
         return;
       }
 
-      localStorage.setItem("token", data.token);
+      login(data.token);
       alert("Enregistrement réussi");
     } catch (_err) {
       setError("Erreur de connexion au serveur");

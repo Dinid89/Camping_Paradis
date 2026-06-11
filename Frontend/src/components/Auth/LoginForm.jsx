@@ -1,10 +1,15 @@
 import { useState } from "react";
+import { useAuth } from '../../context/useAuth'
 
 export default function LoginForm() {
+  
+  const {login} = useAuth()
+  
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,7 +29,8 @@ export default function LoginForm() {
         return;
       }
 
-      localStorage.setItem("token", data.token);
+      
+      login(data.token);
       alert("Connexion réussie !");
     } catch (_err) {
       setError("Erreur de connexion au serveur");
