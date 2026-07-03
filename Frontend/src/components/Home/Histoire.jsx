@@ -1,4 +1,3 @@
-import Logo from "../../assets/logos/logo.png"
 
 export default function Histoire() {
   return (
@@ -8,7 +7,7 @@ export default function Histoire() {
         {/* Colonne Image */}
         <div className="w-full lg:w-1/2 flex justify-center items-center p-4">
           <img 
-            src={Logo} 
+            src="https://images.unsplash.com/photo-1760533536564-64bd8e84b2ac?q=80&w=627&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
             alt="Logo Camping Paradis" 
             className="w-200 sm:w-200 md:w-200 lg:w-full max-w-md h-auto object-contain animate-fade-in"
           />
